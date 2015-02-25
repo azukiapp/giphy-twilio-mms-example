@@ -1,0 +1,70 @@
+/**
+ * Documentation: http://docs.azk.io/Azkfile.js
+ */
+
+// Adds the systems that shape your system
+systems({
+  'giphy-twilio-mms': {
+    // Dependent systems
+    depends: [],
+    // More images:  http://images.azk.io
+    image: {"docker": "azukiapp/ruby:2.1"},
+    // Steps to execute before running instances
+    provision: [
+      "bundle install --path /azk/bundler",
+    ],
+    workdir: "/azk/#{manifest.dir}",
+    shell: "/bin/bash",
+    command: "bundle exec rackup config.ru --pid /tmp/ruby.pid --port $HTTP_PORT --host 0.0.0.0",
+    wait: {"retry": 20, "timeout": 1000},
+    mounts: {
+      '/azk/#{manifest.dir}': path("."),
+      '/azk/bundler': persistent("bundler"),
+    },
+    scalable: {"default": 4},
+    http: {
+      domains: [ "#{system.name}.#{azk.default_domain}" ]
+    },
+    envs: {
+      // set instances variables
+      RUBY_ENV: "development",
+      BUNDLE_APP_CONFIG: "/azk/bundler",
+      ACCOUNT_SID: "YOUR_TWILIO_ACCOUNT_SID",
+      AUTH_TOKEN: "YOUR_TWILIO_ACCOUNT_AUTH_TOKEN",
+      TWILIO_PHONE_NUMBER: "YOUR_TWILIO_PHONE_NUMBER",
+      GIPHY_API_KEY: "YOUR_GIPHY_APY_KEY",
+    },
+    export_envs: {
+      HTTP_PORT: "#{azk.default_domain}:#{net.port.http}",
+      HTTPS_PORT: "#{azk.default_domain}:#{net.port.http}"
+    },
+  },
+  ngrok: {
+    // Dependent systems
+    depends: ["giphy-twilio-mms"],
+    image     : {"docker" : "gullitmiranda/docker-ngrok"},
+    // Mounts folders to assigned paths
+    mounts: {
+      // equivalent persistent_folders
+      '/ngrok/log' : path("./log"),
+    },
+    scalable: {"default": 1},
+    // do not expect application response
+    wait: false,
+    http      : {
+      domains: [ "#{manifest.dir}-#{system.name}.#{azk.default_domain}" ],
+    },
+    ports     : {
+      http : "4040"
+    },
+    envs      : {
+      NGROK_LOG       : "/ngrok/log/ngrok.log",
+      NGROK_SUBDOMAIN : "giphy-twilio-mms",
+      NGROK_AUTH      : "rTz5WboOOSMqVrFudJ1C",
+      NGROK_CONFIG    : "/ngrok/ngrok.yml",
+    }
+  }
+});
+
+
+

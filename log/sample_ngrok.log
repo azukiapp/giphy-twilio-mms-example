@@ -1,0 +1,31 @@
+[2015/02/25 20:54:29 UTC] [INFO] (ngrok/log.Info:89) Reading configuration file /ngrok/ngrok.yml
+[2015/02/25 20:54:29 UTC] [INFO] (ngrok/log.(*PrefixLogger).Info:60) [client] Trusting root CAs: [assets/client/tls/ngrokroot.crt]
+[2015/02/25 20:54:29 UTC] [INFO] (ngrok/log.(*PrefixLogger).Info:60) [view] [web] Serving web interface on 0.0.0.0:4040
+[2015/02/25 20:54:29 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [view] [term] Waiting for update
+[2015/02/25 20:54:29 UTC] [INFO] (ngrok/log.Info:89) Checking for update
+[2015/02/25 20:54:29 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [ctl:4751e1a5] New connection to: 96.126.125.171:443
+[2015/02/25 20:54:29 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [ctl:4751e1a5] Writing message: {"Type":"Auth","Payload":{"Version":"2","MmVersion":"1.7","User":"rTz5WboOOSMqVrFudJ1C","Password":"","OS":"linux","Arch":"amd64","ClientId":""}}
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [ctl:4751e1a5] Waiting to read message
+[2015/02/25 20:54:30 UTC] [EROR] (ngrok/log.Error:97) Error while checking for update: Post https://api.equinox.io/1/Updates: x509: failed to load system roots and no roots provided
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [ctl:4751e1a5] Reading message with length: 120
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [ctl:4751e1a5] Read message {"Type":"AuthResp","Payload":{"Version":"2","MmVersion":"1.7","ClientId":"4db7666268e1413f24ef325827c42d55","Error":""}}
+[2015/02/25 20:54:30 UTC] [INFO] (ngrok/log.(*PrefixLogger).Info:60) [client] Authenticated with server, client id: 4db7666268e1413f24ef325827c42d55
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [view] [term] Waiting for update
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [ctl:4751e1a5] Writing message: {"Type":"ReqTunnel","Payload":{"ReqId":"2513a8aae45e9620","Protocol":"http+https","Hostname":"","Subdomain":"giphy-twilio-mms","HttpAuth":"","RemotePort":0}}
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [ctl:4751e1a5] Waiting to read message
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [ctl:4751e1a5] Reading message with length: 32
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [ctl:4751e1a5] Read message {"Type":"ReqProxy","Payload":{}}
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [ctl:4751e1a5] Waiting to read message
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [pxy:5edf799e] New connection to: 96.126.125.171:443
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [pxy:5edf799e] Writing message: {"Type":"RegProxy","Payload":{"ClientId":"4db7666268e1413f24ef325827c42d55"}}
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [ctl:4751e1a5] Reading message with length: 130
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [ctl:4751e1a5] Read message {"Type":"NewTunnel","Payload":{"ReqId":"2513a8aae45e9620","Url":"http://giphy-twilio-mms.ngrok.com","Protocol":"http","Error":""}}
+[2015/02/25 20:54:30 UTC] [INFO] (ngrok/log.(*PrefixLogger).Info:60) [client] Tunnel established at http://giphy-twilio-mms.ngrok.com
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [ctl:4751e1a5] Waiting to read message
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [view] [term] Waiting for update
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [ctl:4751e1a5] Reading message with length: 132
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [ctl:4751e1a5] Read message {"Type":"NewTunnel","Payload":{"ReqId":"2513a8aae45e9620","Url":"https://giphy-twilio-mms.ngrok.com","Protocol":"https","Error":""}}
+[2015/02/25 20:54:30 UTC] [INFO] (ngrok/log.(*PrefixLogger).Info:60) [client] Tunnel established at https://giphy-twilio-mms.ngrok.com
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [ctl:4751e1a5] Waiting to read message
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [view] [term] Waiting for update
+[2015/02/25 20:54:30 UTC] [DEBG] (ngrok/log.(*PrefixLogger).Debug:56) [pxy:5edf799e] Waiting to read message
