@@ -35,14 +35,14 @@ systems({
       GIPHY_API_KEY: "YOUR_GIPHY_APY_KEY",
     },
     export_envs: {
-      HTTP_PORT: "#{azk.default_domain}:#{net.port.http}",
+      APP_URL: "#{azk.default_domain}:#{net.port.http}",
       HTTPS_PORT: "#{azk.default_domain}:#{net.port.http}"
     },
   },
   ngrok: {
     // Dependent systems
     depends: ["giphy-twilio-mms"],
-    image     : {"docker" : "gullitmiranda/docker-ngrok"},
+    image     : {"docker" : "azukiapp/ngrok"},
     // Mounts folders to assigned paths
     mounts: {
       // equivalent persistent_folders
